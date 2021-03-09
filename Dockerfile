@@ -2,7 +2,7 @@ FROM php:7.2-fpm
 
 LABEL maintainer="Isidro Garcia <isidro.a.garcia@gmail.com>"
 LABEL version="1.0"
-ARG PHALCON_VERSION=3.4.5
+ARG PHALCON_VERSION=3.4.4
 ARG PHALCON_EXT_PATH=php7/64bits
 
 
