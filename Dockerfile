@@ -2,7 +2,7 @@ FROM php:7.2-fpm
 
 LABEL maintainer="Isidro Garcia <isidro.a.garcia@gmail.com>"
 LABEL version="1.0"
-ARG PHALCON_VERSION=3.4.4
+ARG PHALCON_VERSION=4.1.0
 ARG PHALCON_EXT_PATH=php7/64bits
 
 
@@ -22,6 +22,9 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN set -xe && \
+    # Install PSR
+    pecl install psr-1.0.0 && \
+    docker-php-ext-enable psr && \
     # Download Phalcon
     curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz && \
     tar xzf ${PWD}/v${PHALCON_VERSION}.tar.gz && \
